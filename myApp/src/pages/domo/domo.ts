@@ -10,14 +10,14 @@ import { NavController, NavParams } from 'ionic-angular';
 
 //@IonicPage()
 @Component({
-  selector: 'page-alarm',
-  templateUrl: 'alarm.html',
+  selector: 'page-domo',
+  templateUrl: 'domo.html',
 })
-export class AlarmPage {
+export class DomoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  
+
 
 }
