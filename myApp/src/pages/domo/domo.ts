@@ -1,33 +1,120 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'page-domo',
   templateUrl: 'domo.html',
 })
+
 export class DomoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
-  
+  today = Date.now();
+  fixedTimezone = '2015-06-15T09:03:01+0900';
+
+  changeName() {
+    let prompt = this.alertCtrl.create({
+      title: 'Change Name',
+      message: "Enter your new Domo name",
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Name'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+
+  }
+  changeVoice() {
+     console.log('knoptest');
+      let alert = this.alertCtrl.create();
+      alert.setTitle('Select a mood');
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Voice1',
+        value: 'voice1',
+      //  checked: true
+      });
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Voice2',
+        value: 'voice2'
+      });
+
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Voice3',
+        value: 'voice3'
+      });
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Voice4',
+        value: 'voice4'
+      });
+
+      alert.addButton('Cancel');
+      alert.addButton({
+        text: 'Ok',
+        handler: data => {
+          console.log('Checkbox data:', data);
+          this.testCheckboxOpen = false;
+          this.testCheckboxResult = data;
+        }
+      });
+      alert.present();
+    }
+
 
   showCheckbox() {
      console.log('knoptest');
       let alert = this.alertCtrl.create();
-      alert.setTitle('Which Mood do you want?');
+      alert.setTitle('Select a mood?');
 
       alert.addInput({
-        type: 'checkbox',
+        type: 'radio',
         label: 'Sleep',
         value: 'sleep',
-        checked: true
+      //  checked: true
       });
 
       alert.addInput({
-        type: 'checkbox',
+        type: 'radio',
         label: 'Awake',
         value: 'awake'
+      });
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Angry',
+        value: 'angry'
+      });
+
+      alert.addInput({
+        type: 'radio',
+        label: 'Happy',
+        value: 'happy'
       });
 
       alert.addButton('Cancel');

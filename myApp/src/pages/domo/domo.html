@@ -13,37 +13,53 @@
 
 <ion-content padding>
 
-  <div class = "list">
-   <div class = "item">ID</div>
-   <div class = "item item-input-inset">
-       <label class = "item item-input-wrapper">
-          <i class = "icon ion-edit placeholder-icon"></i>
-          <input type = "text" placeholder = "Placeholder 2" />
-       </label>
-    </div>
-   <br><div class = "item">Name</div>
-   <div class = "list">
-   <label class = "item item-input">
-      <input type = "text" placeholder = "Placeholder 1" />
-   </label>
+  <ion-list>
 
-   <label class = "item item-input">
-      <input type = "text" placeholder = "Placeholder 2" />
-   </label>
-</div>
-   <br><div class = "item">Time</div>
-   <ion-item>
+    <ion-item>Name:
+        <ion-note item-mid>
+          Thomas
+        </ion-note>
+        <ion-note item-end>
+        <ion-buttons >
+          <button ion-button small icon-only (click)="changeName()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+          </ion-buttons>
+          </ion-note>
+      </ion-item>
+
+      <p>Time: {{today | date:'shortTime'}}</p>
+
+
+   <!--<ion-item>
       <ion-label >Username</ion-label>
       <ion-input type="text" maxlength="10" placeholder="Enter new Username"></ion-input>
-    </ion-item>
-   <br><div class = "item">Date</div>
-  <br> <div class = "item">Voice</div>
-   <br><div class = "item">Emotion</div>
+    </ion-item>-->
+    <ion-item>Voice:
+        <ion-note item-mid>
+          Voice1
+        </ion-note>
+        <ion-note item-end>
    <ion-buttons end>
-     <button ion-button icon-only (click)="showCheckbox()">
-       Browse emotion
+     <button ion-button small icon-only (click)="changeVoice()">
+       <ion-icon name="arrow-dropdown"></ion-icon>
      </button>
      </ion-buttons>
-</div>
+   </ion-note>
+</ion-item>
 
+    <ion-item>Emotion:
+        <ion-note item-mid>
+          Awake
+        </ion-note>
+        <ion-note item-end>
+   <ion-buttons end>
+     <button ion-button small icon-only (click)="showCheckbox()">
+       <ion-icon name="arrow-dropdown"></ion-icon>
+     </button>
+     </ion-buttons>
+   </ion-note>
+</ion-item>
+
+</ion-list>
 </ion-content>
