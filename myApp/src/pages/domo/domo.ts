@@ -8,12 +8,12 @@ import { AlertController } from 'ionic-angular';
 })
 export class DomoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
-  constructor(public alertCtrl: AlertController) { }
+  
 
   showCheckbox() {
-    console.log('knoptest');
+     console.log('knoptest');
       let alert = this.alertCtrl.create();
       alert.setTitle('Which Mood do you want?');
 
