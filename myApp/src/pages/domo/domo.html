@@ -6,11 +6,44 @@
 -->
 <ion-header>
 
-  
+  <h3>Domo Settings</h3>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div class = "list">
+   <div class = "item">ID</div>
+   <div class = "item item-input-inset">
+       <label class = "item item-input-wrapper">
+          <i class = "icon ion-edit placeholder-icon"></i>
+          <input type = "text" placeholder = "Placeholder 2" />
+       </label>
+    </div>
+   <br><div class = "item">Name</div>
+   <div class = "list">
+   <label class = "item item-input">
+      <input type = "text" placeholder = "Placeholder 1" />
+   </label>
+
+   <label class = "item item-input">
+      <input type = "text" placeholder = "Placeholder 2" />
+   </label>
+</div>
+   <br><div class = "item">Time</div>
+   <ion-item>
+      <ion-label >Username</ion-label>
+      <ion-input type="text" maxlength="10" placeholder="Enter new Username"></ion-input>
+    </ion-item>
+   <br><div class = "item">Date</div>
+  <br> <div class = "item">Voice</div>
+   <br><div class = "item">Emotion</div>
+   <ion-buttons end>
+     <button ion-button icon-only (click)="showCheckbox()">
+       Browse emotion
+     </button>
+     </ion-buttons>
+</div>
 
 </ion-content>
