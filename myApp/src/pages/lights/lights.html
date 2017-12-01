@@ -1,16 +1,10 @@
-<!--
-  Generated template for the LightsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
     <ion-title>Talk Domo</ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
+      <button ion-button icon-only (click)="godomoSetting()">
         <ion-icon name="settings"></ion-icon>
       </button>
       </ion-buttons>
@@ -20,5 +14,41 @@
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item><b>Lights</b>
+        <ion-note item-mid>
+        </ion-note>
+        <ion-note item-end>
+        <ion-buttons >
+          <button ion-button small icon-only (click)="addLight()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+          </ion-buttons>
+          </ion-note>
+      </ion-item>
+
+
+    <ion-item>
+      <ion-label>Light 1</ion-label>
+      <ion-toggle value="foo" checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let item of items">
+
+      <ion-item>
+      {{item}}
+      </ion-item>
+
+      <ion-item-options>
+        <button danger icon-only (click)="removeItem(item)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
 
 </ion-content>

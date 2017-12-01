@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { DatePipe } from '@angular/common';
-import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 
+
+/**
+ * Generated class for the UsersPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+//@IonicPage()
 @Component({
   selector: 'page-domo',
-  templateUrl: 'domo.html',
+  templateUrl: 'domo2.html',
 })
-
 export class DomoPage {
-
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController,
-    public navParams: NavParams, public alertCtrl: AlertController,
-    public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl: ModalController, public alertCtrl: AlertController, public viewCtrl: ViewController) {
   }
+
   today = Date.now();
   fixedTimezone = '2015-06-15T09:03:01+0900';
 
@@ -90,50 +96,51 @@ export class DomoPage {
       alert.present();
     }
 
-  showCheckbox() {
-     console.log('knoptest');
-      let alert = this.alertCtrl.create();
-      alert.setTitle('Select a mood?');
+    showCheckbox() {
+       console.log('knoptest');
+        let alert = this.alertCtrl.create();
+        alert.setTitle('Select a mood?');
 
-      alert.addInput({
-        type: 'radio',
-        label: 'Sleep',
-        value: 'sleep',
-      //  checked: true
-      });
+        alert.addInput({
+          type: 'radio',
+          label: 'Sleep',
+          value: 'sleep',
+        //  checked: true
+        });
 
-      alert.addInput({
-        type: 'radio',
-        label: 'Awake',
-        value: 'awake'
-      });
+        alert.addInput({
+          type: 'radio',
+          label: 'Awake',
+          value: 'awake'
+        });
 
-      alert.addInput({
-        type: 'radio',
-        label: 'Angry',
-        value: 'angry'
-      });
+        alert.addInput({
+          type: 'radio',
+          label: 'Angry',
+          value: 'angry'
+        });
 
-      alert.addInput({
-        type: 'radio',
-        label: 'Happy',
-        value: 'happy'
-      });
+        alert.addInput({
+          type: 'radio',
+          label: 'Happy',
+          value: 'happy'
+        });
 
-      alert.addButton('Cancel');
-      alert.addButton({
-        text: 'Ok',
-        handler: data => {
-          console.log('Checkbox data:', data);
-          this.testCheckboxOpen = false;
-          this.testCheckboxResult = data;
-        }
-      });
-      alert.present();
-    }
-
+        alert.addButton('Cancel');
+        alert.addButton({
+          text: 'Ok',
+          handler: data => {
+            console.log('Checkbox data:', data);
+            this.testCheckboxOpen = false;
+            this.testCheckboxResult = data;
+          }
+        });
+        alert.present();
+      }
+          
   gotoPrevious() {
     this.viewCtrl.dismiss();
   }
+
 
 }

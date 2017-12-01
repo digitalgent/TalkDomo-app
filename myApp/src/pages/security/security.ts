@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {DomoPage} from '../domo/domo';
+import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the SecurityPage page.
@@ -15,11 +17,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SecurityPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SecurityPage');
+  godomoSetting() {
+    let modal = this.modalCtrl.create(DomoPage);
+    modal.present();
+    //console.log('knoptest');
   }
 
 }

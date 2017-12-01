@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {DomoPage} from '../domo/domo'
+import { DomoPage } from '../domo2/domo2';
+import { UsersPage } from '../users/users';
+import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 //import { List } from 'ionic-angular';
 //import { Component, ViewChild } from '@angular/core';
 
@@ -11,18 +13,18 @@ import {DomoPage} from '../domo/domo'
 export class HomePage {
 // @ViewChild(List) list: List;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.navCtrl = navCtrl
-
   }
 
+
   godomoSetting() {
-    this.navCtrl.push(DomoPage);
-   console.log('knoptest');
-   //this.list.enableSlidingItems(true);
- }
+    let modal = this.modalCtrl.create(DomoPage);
+    modal.present();
+    //this.navCtrl.push(DomoPage);
+    //console.log('knoptest');
+  }
 
-  //openModal() {
 
-  //}
+
 }
