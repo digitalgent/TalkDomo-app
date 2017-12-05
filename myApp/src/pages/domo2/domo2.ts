@@ -18,6 +18,11 @@ import { DatePipe } from '@angular/common';
 export class DomoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController, public alertCtrl: AlertController, public viewCtrl: ViewController) {
+
+
+      this.data = "Domo"
+      this.voice = "Voice1"
+      this.emote = "Awake"
   }
 
   today = Date.now();
@@ -43,7 +48,8 @@ export class DomoPage {
         {
           text: 'Save',
           handler: data => {
-            console.log(data);
+            this.data = data.name;
+
 
           }
         }
@@ -90,7 +96,7 @@ export class DomoPage {
         handler: data => {
           console.log('Checkbox data:', data);
           this.testCheckboxOpen = false;
-          this.testCheckboxResult = data;
+          this.voice = data;
         }
       });
       alert.present();
@@ -132,7 +138,7 @@ export class DomoPage {
           handler: data => {
             console.log('Checkbox data:', data);
             this.testCheckboxOpen = false;
-            this.testCheckboxResult = data;
+            this.emote = data;
           }
         });
         alert.present();
