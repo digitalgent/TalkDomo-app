@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { SecurityPage } from '../pages/security/security';
 import { UsersPage } from '../pages/users/users';
 import { DomoPage } from '../pages/domo2/domo2';
+import { SlidesPage } from '../pages/slides/slides';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SecurityPage,
     UsersPage,
     DomoPage,
+    SlidesPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SecurityPage,
     UsersPage,
     DomoPage,
+    SlidesPage,
     TabsPage
   ],
   providers: [
