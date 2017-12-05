@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { DomoPage } from '../domo2/domo2';
 import { UsersPage } from '../users/users';
-import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { ModalController, NavParams, ViewController } from 'ionic-angular';
 //import { List } from 'ionic-angular';
 //import { Component, ViewChild } from '@angular/core';
 
