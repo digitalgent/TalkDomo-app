@@ -17,6 +17,7 @@ import { ModalController, NavParams, ViewController } from 'ionic-angular';
 })
 export class UsersPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+    this.items = [];
   }
 
   godomoSetting() {
@@ -25,4 +26,15 @@ export class UsersPage {
     //console.log('knoptest');
   }
 
+  addUser() {
+      this.items.push(this.item);
+      this.item = "User";
+  }
+
+  removeUser(item){
+
+    let index = this.items.indexOf(item);
+    this.items.splice(item, 1);
+
+  }
 }

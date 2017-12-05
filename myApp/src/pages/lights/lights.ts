@@ -13,7 +13,7 @@ export class LightsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
 
-    this.items = ["Foo", "Bar"];
+    this.items = [];
 
   }
 
@@ -22,6 +22,11 @@ export class LightsPage {
     let modal = this.modalCtrl.create(DomoPage);
     modal.present();
    //console.log('knoptest');
+    }
+
+    addLight() {
+        this.items.push(this.item);
+        this.item = "Light";
     }
 
   removeItem(item){

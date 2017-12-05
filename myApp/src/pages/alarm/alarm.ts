@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {DomoPage} from '../domo2/domo2';
+import { DomoPage } from '../domo2/domo2';
 import { ModalController, NavParams, ViewController } from 'ionic-angular';
 
 /**

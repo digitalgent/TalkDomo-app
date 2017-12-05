@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { ModalController, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { DatePipe } from '@angular/common';
 
 
@@ -44,7 +43,8 @@ export class DomoPage {
         {
           text: 'Save',
           handler: data => {
-            console.log('Saved clicked');
+            console.log(data);
+
           }
         }
       ]
@@ -137,7 +137,7 @@ export class DomoPage {
         });
         alert.present();
       }
-          
+
   gotoPrevious() {
     this.viewCtrl.dismiss();
   }
