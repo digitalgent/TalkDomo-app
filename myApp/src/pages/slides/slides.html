@@ -10,22 +10,73 @@
     <ion-slide>
       <h2 class="slide-title">Getting started!</h2>
       <p>Welcome to the Talk Domo app. With this app you can adjust your Talk Domo to your likes. But first you need to create an account. Slide to the next page.</p>
-    </ion-slide>
+</ion-slide>
 
-    <ion-slide>
-      <h2 class="slide-title">Create an account!</h2>
-      <p>Username:</p>
-      </ion-slide>
+<ion-slide>
+  <h2 class="slide-title">Connect Domo!</h2>
+  <p>Scan the code on the package of your Domo to connect it.</p>
+  <ion-fab center>
+    <button ion-fab color="primary" (click)="startCamera()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>
+</ion-slide>
+
+<ion-slide>
+      <h2 class="slide-title">Create a user!</h2>
+    <ion-list>
+        <ion-item>
+          <ion-label color="primary">Username:</ion-label>
+          <ion-input placeholder="Text Input"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">First name:</ion-label>
+          <ion-input placeholder="Text Input"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Last name:</ion-label>
+          <ion-input placeholder="Text Input"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Emailadres:</ion-label>
+          <ion-input placeholder="Text Input"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Pasword:</ion-label>
+          <ion-input placeholder="Text Input"></ion-input>
+        </ion-item>
+            </ion-list>
+            <div padding>
+              <button ion-button color="primary" block>Create user</button>
+            </div>
+</ion-slide>
+
+
+
 
     <ion-slide>
       <h2 class="slide-title">Login!</h2>
-      <p>Username:</p>
-      <p>Pasword:</p>
+      <ion-list>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block>Log In</button>
+    </div>
       </ion-slide>
 
     <ion-slide>
-      
+
       <h2 class="slide-title">Ready to Start?</h2>
+      <p> Congratulations your Talk Domo is all set up.
       <button ion-button large clear icon-end color="primary">
         Continue
         <ion-icon name="arrow-forward"></ion-icon>

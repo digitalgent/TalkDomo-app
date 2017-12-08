@@ -17,7 +17,8 @@ import { APIService } from '../../providers/rest/api-service';
 export class HomePage {
 // @ViewChild(List) list: List;
 
-  domo = {name: "loading"};
+  domo = {name: "loading", users: [{first_name: ""}]};
+  user = {first_name: ""};
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, private api: APIService) {
     this.navCtrl = navCtrl
@@ -31,6 +32,17 @@ export class HomePage {
           console.log(err);
       },
       () => console.log('Domo get Complete')
+    );
+
+    this.api.getUser(1).subscribe(
+      data => {
+          this.user = data;
+          console.log(data);
+      },
+      err => {
+          console.log(err);
+      },
+      () => console.log('user get Complete')
     );
   }
 
