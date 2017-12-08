@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -16,6 +16,18 @@ export class APIService {
       var response = this.http.get(endpoint).map(res => res.json());
 
       return response;
+  }
+
+  postUser(userdata) {
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    var endpoint = this.url + encodeURI("domo/1/users");
+    var response = this.http.post(endpoint, JSON.stringify(userdata), options).map(res => res.json());
+
+    return response;
   }
 
   getUser(user_id) {

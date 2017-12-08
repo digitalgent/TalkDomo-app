@@ -30,28 +30,28 @@
     <ion-list>
         <ion-item>
           <ion-label color="primary">Username:</ion-label>
-          <ion-input placeholder="Text Input"></ion-input>
+          <ion-input placeholder="Text Input"[(ngModel)]="userdata.username"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">First name:</ion-label>
-          <ion-input placeholder="Text Input"></ion-input>
+          <ion-input placeholder="Text Input" [(ngModel)]="userdata.firstName"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Last name:</ion-label>
-          <ion-input placeholder="Text Input"></ion-input>
+          <ion-input placeholder="Text Input"[(ngModel)]="userdata.lastName"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Emailadres:</ion-label>
-          <ion-input placeholder="Text Input"></ion-input>
+          <ion-input placeholder="Text Input" [(ngModel)]="userdata.email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label color="primary">Pasword:</ion-label>
-          <ion-input placeholder="Text Input"></ion-input>
+          <ion-input placeholder="Text Input" [(ngModel)]="userdata.password"></ion-input>
         </ion-item>
-            </ion-list>
-            <div padding>
-              <button ion-button color="primary" block>Create user</button>
-            </div>
+      </ion-list>
+      <div padding>
+        <button ion-button color="primary" block (click)="addUser()">Create user</button>
+      </div>
 </ion-slide>
 
 
