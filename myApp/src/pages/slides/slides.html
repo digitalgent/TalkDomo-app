@@ -15,14 +15,17 @@
 <ion-slide>
   <h2 class="slide-title">Connect Domo!</h2>
   <p>Scan the code on the package of your Domo to connect it.</p>
+  <ion-card>
+    <img src="/assets/imgs/QRDOMO.jpg" />
+  </ion-card>
   <ion-fab center>
-    <button ion-fab color="primary" (click)="startCamera()">
+    <button ion-fab color="primary" (click)="gotoNextSlide()">
         <ion-icon name="md-camera"></ion-icon>
     </button>
 </ion-fab>
 </ion-slide>
 
-<ion-slide>
+<ion-slide class="toUser">
       <h2 class="slide-title">Create a user!</h2>
     <ion-list>
         <ion-item>
