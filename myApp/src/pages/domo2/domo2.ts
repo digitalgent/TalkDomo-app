@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
-import { DatePipe } from '@angular/common';
-
+import { APIService } from '../../providers/rest/api-service';
 
 /**
  * Generated class for the UsersPage page.
@@ -17,18 +16,28 @@ import { DatePipe } from '@angular/common';
 })
 export class DomoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public modalCtrl: ModalController, public alertCtrl: AlertController, public viewCtrl: ViewController) {
+    public modalCtrl: ModalController, public alertCtrl: AlertController, public viewCtrl: ViewController, private api: APIService) {
 
 
-      this.data = "Domo"
-      this.voice = "Voice1"
-      this.emote = "Awake"
+      this.domodata = {
+        "name": "Domo",
+        "voice": "Voice1",
+        "emotion": "Awake"
+      };
   }
 
   today = Date.now();
   fixedTimezone = '2015-06-15T09:03:01+0900';
 
+  sendApi() {
+
+    this.api.putDomo(this.domodata).subscribe(
+      () => console.log('Name changed')
+    );
+  }
+
   changeName() {
+
     let prompt = this.alertCtrl.create({
       title: 'Change Name',
       message: "Enter your new Domo name",
@@ -48,7 +57,9 @@ export class DomoPage {
         {
           text: 'Save',
           handler: data => {
-            this.data = data.name;
+            this.domodata.name = data.name;
+            this.sendApi();
+
 
 
           }
@@ -58,6 +69,8 @@ export class DomoPage {
     prompt.present();
 
   }
+
+
 
   changeVoice() {
      console.log('knoptest');
@@ -96,7 +109,7 @@ export class DomoPage {
         handler: data => {
           console.log('Checkbox data:', data);
           this.testCheckboxOpen = false;
-          this.voice = data;
+          this.domodata.voice = data;
         }
       });
       alert.present();
@@ -138,7 +151,9 @@ export class DomoPage {
           handler: data => {
             console.log('Checkbox data:', data);
             this.testCheckboxOpen = false;
-            this.emote = data;
+
+            this.domodata.emotion = data;
+            this.sendApi();
           }
         });
         alert.present();

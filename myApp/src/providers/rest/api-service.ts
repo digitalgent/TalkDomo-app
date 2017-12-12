@@ -30,6 +30,18 @@ export class APIService {
     return response;
   }
 
+  putDomo(domodata) {
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    var endpoint = this.url + encodeURI("domo/1");
+    var response = this.http.put(endpoint, JSON.stringify(domodata), options).map(res => res.json());
+
+    return response;
+  }
+
   getUser(user_id) {
       var endpoint = this.url + encodeURI("users/" + user_id);
       var response = this.http.get(endpoint).map(res => res.json());

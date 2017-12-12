@@ -10,6 +10,9 @@
     <ion-slide>
       <h2 class="slide-title">Getting started!</h2>
       <p>Welcome to the Talk Domo app. With this app you can adjust your Talk Domo to your likes. But first you need to create an account. Slide to the next page.</p>
+      <div padding>
+        <button ion-button color="primary" block (click)="gotoNextSlide0()">Next</button>
+      </div>
 </ion-slide>
 
 <ion-slide>
@@ -72,7 +75,7 @@
     </ion-list>
 
     <div padding>
-      <button ion-button color="primary" block>Log In</button>
+      <button ion-button color="primary" block (click)="gotoNextSlide2()">Log In</button>
     </div>
       </ion-slide>
 
@@ -80,7 +83,7 @@
 
       <h2 class="slide-title">Ready to Start?</h2>
       <p> Congratulations your Talk Domo is all set up.
-      <button ion-button large clear icon-end color="primary">
+      <button ion-button large clear icon-end color="primary" (click)="appBegin()">
         Continue
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
