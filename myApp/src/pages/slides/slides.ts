@@ -6,6 +6,8 @@ import { Component,ViewChild } from '@angular/core';
 import { APIService } from '../../providers/rest/api-service';
 import { ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
+
 //import { Camera, CameraPreviewRect, CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera';
 //import { CameraPreview, CameraPreviewRect } from 'ionic-native';
 
@@ -77,7 +79,7 @@ this.slides.slideNext();
   }
 
   appBegin() {
-this.navCtrl.push(HomePage);
+this.navCtrl.push(TabsPage);
 
   }
 //gotoUser(){

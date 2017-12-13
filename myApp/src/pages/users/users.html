@@ -34,13 +34,11 @@
     </ion-item>
 
     <ion-list>
-
+      
       <ion-item-sliding *ngFor="let item of items">
-
         <ion-item>
-        {{item}}
+          {{item.first_name}}
         </ion-item>
-
         <ion-item-options>
           <button danger icon-only (click)="removeUser(item)"><ion-icon name="trash"></ion-icon></button>
         </ion-item-options>

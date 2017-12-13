@@ -15,15 +15,31 @@ import { APIService } from '../../providers/rest/api-service';
   templateUrl: 'domo2.html',
 })
 export class DomoPage {
+
+  public domo = {
+    "name": "",
+    "voice": "Voice1",
+    "emotion": ""
+  };
+
+  public voice = "Voice1";
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController, public alertCtrl: AlertController, public viewCtrl: ViewController, private api: APIService) {
 
+      this.domo = this.api.activeDomo;
 
-      this.domodata = {
-        "name": "Domo",
-        "voice": "Voice1",
-        "emotion": "Awake"
-      };
+      this.api.getDomo(1).subscribe(
+        data => {
+            //this.domo = data;
+            console.log(data);
+            console.log("test");
+        },
+        err => {
+            console.log(err);
+        },
+        () => console.log('Domo get Complete')
+      );
   }
 
   today = Date.now();
@@ -31,7 +47,7 @@ export class DomoPage {
 
   sendApi() {
 
-    this.api.putDomo(this.domodata).subscribe(
+    this.api.putDomo(this.domo).subscribe(
       () => console.log('Name changed')
     );
   }
@@ -57,11 +73,8 @@ export class DomoPage {
         {
           text: 'Save',
           handler: data => {
-            this.domodata.name = data.name;
+            this.domo.name = data.name;
             this.sendApi();
-
-
-
           }
         }
       ]
@@ -109,7 +122,7 @@ export class DomoPage {
         handler: data => {
           console.log('Checkbox data:', data);
           this.testCheckboxOpen = false;
-          this.domodata.voice = data;
+          this.voice = data;
         }
       });
       alert.present();
@@ -152,7 +165,7 @@ export class DomoPage {
             console.log('Checkbox data:', data);
             this.testCheckboxOpen = false;
 
-            this.domodata.emotion = data;
+            this.domo.emotion = data;
             this.sendApi();
           }
         });

@@ -17,24 +17,15 @@ import { APIService } from '../../providers/rest/api-service';
 export class HomePage {
 // @ViewChild(List) list: List;
 
-  domo = {name: "loading", users: [{first_name: ""}]};
-  user = {first_name: ""};
+  public user = {first_name: ""};
+  public domo = {name: "", voice: "Voice1", emotion: ""};
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, private api: APIService) {
-    this.navCtrl = navCtrl
+    this.navCtrl = navCtrl;
+    this.user = this.api.activeUser;
+    this.domo = this.api.activeDomo;
 
-    this.api.getDomo(1).subscribe(
-      data => {
-          this.domo = data;
-          console.log(data);
-      },
-      err => {
-          console.log(err);
-      },
-      () => console.log('Domo get Complete')
-    );
-
-    this.api.getUser(1).subscribe(
+    /*this.api.getUser(1).subscribe(
       data => {
           this.user = data;
           console.log(data);
@@ -43,10 +34,23 @@ export class HomePage {
           console.log(err);
       },
       () => console.log('user get Complete')
-    );
+    );*/
   }
 
+  ionViewWillEnter() { // THERE IT IS!!!
 
+    this.api.getDomo(1).subscribe(
+      data => {
+        this.domo = this.api.activeDomo;
+
+      },
+      err => {
+          console.log(err);
+      },
+      () => console.log('Domo get Complete')
+    );
+    //return this.service.getComments().then(data => this.comments = data);
+  }
 
 
   godomoSetting() {

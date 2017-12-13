@@ -11,10 +11,18 @@ import { ItemSliding, List } from 'ionic-angular';
 })
 export class LightsPage {
 
+  items = [];
+  lightcount = 2;
+  item = "Light ";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
 
-    this.items = [];
+    //this.items = [];
 
+  }
+
+  lightstatus() {
+    console.log('test')
   }
 
 
@@ -25,8 +33,8 @@ export class LightsPage {
     }
 
     addLight() {
-        this.items.push(this.item);
-        this.item = "Light";
+        this.items.push(this.item + [this.lightcount]);
+        this.lightcount ++;
     }
 
   removeItem(item){

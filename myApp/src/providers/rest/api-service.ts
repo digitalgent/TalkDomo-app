@@ -6,6 +6,12 @@ import 'rxjs/add/operator/map';
 export class APIService {
 
   url = 'http://digitalent.cc:8080/v1/';
+  public activeUser = {first_name: ""};
+  public activeDomo = {
+    "name": "",
+    "voice": "Voice1",
+    "emotion": ""
+  };
 
   constructor(private http:Http) {
 
@@ -14,6 +20,12 @@ export class APIService {
   getDomo(domo_id) {
       var endpoint = this.url + encodeURI("domo/" + domo_id);
       var response = this.http.get(endpoint).map(res => res.json());
+
+      response.subscribe(
+        data => {
+          this.activeDomo = data;
+        }
+      );
 
       return response;
   }
@@ -27,6 +39,12 @@ export class APIService {
     var endpoint = this.url + encodeURI("domo/1/users");
     var response = this.http.post(endpoint, JSON.stringify(userdata), options).map(res => res.json());
 
+    response.subscribe(
+      data => {
+          this.activeUser = data;
+      }
+    );
+
     return response;
   }
 
@@ -38,6 +56,13 @@ export class APIService {
 
     var endpoint = this.url + encodeURI("domo/1");
     var response = this.http.put(endpoint, JSON.stringify(domodata), options).map(res => res.json());
+
+    response.subscribe(
+      data => {
+        console.log(response, data, this.activeDomo)
+          this.activeDomo = data;
+      }
+    );
 
     return response;
   }

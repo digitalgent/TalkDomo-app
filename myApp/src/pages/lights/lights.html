@@ -16,7 +16,7 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item><b>Lights</b>
+    <ion-item><b>Lights:</b>
         <ion-note item-mid>
         </ion-note>
         <ion-note item-end>
@@ -31,9 +31,9 @@
 
     <ion-item>
       <ion-label>Light 1</ion-label>
-      <ion-toggle value="foo" checked="true"></ion-toggle>
+      <ion-toggle value="lightstatus" checked="false" (click)="lightstatus()"></ion-toggle>
     </ion-item>
-  
+<!-- [(ngModel)]="lightstatus" -->
 
     <ion-item-sliding *ngFor="let item of items">
 

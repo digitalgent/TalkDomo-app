@@ -12,17 +12,18 @@
 <ion-content padding>
   <h2>This is Talk Domo!</h2>
   <p>
-    Welcome {{ domo.users[0].first_name }}
+    Welcome {{ user.first_name }}
   </p>
   <ion-content padding>
    <ion-row>
    <ion-col width-50 style="text-align: center">
-         <button ion-button round outline (click)="testSlides()">Wake Up</button>
-       <br><button ion-button round outline>Sleep</button>
-       <br>
+         <button ion-button round outline (click)="testSlides()">First Start</button>
+              <br>
        <h4>About:</h4>
        <p>
-       This is Talk Domo. My name is {{domo.name}}
+       This is Talk Domo. My name is {{domo.name}}.
+       <br>My mood: {{domo.emotion}}.
+       <br>
        <br>William, Jonathan and Thomas created the Talk Domo in 4 weeks.
        <br>This is only a proof of concept.
      </p>
