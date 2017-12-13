@@ -9,7 +9,7 @@ export class APIService {
   public activeUser = {first_name: ""};
   public activeDomo = {
     "name": "",
-    "voice": "Voice1",
+    "voice": "",
     "emotion": ""
   };
 
@@ -63,6 +63,30 @@ export class APIService {
           this.activeDomo = data;
       }
     );
+
+    return response;
+  }
+
+  putApps(appsdata) {
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    var endpoint = this.url + encodeURI("apps/1");
+    var response = this.http.put(endpoint, JSON.stringify(appsdata), options).map(res => res.json());
+
+    return response;
+  }
+
+  putApps2(appsdata2) {
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+    var endpoint = this.url + encodeURI("apps/2");
+    var response = this.http.put(endpoint, JSON.stringify(appsdata2), options).map(res => res.json());
 
     return response;
   }

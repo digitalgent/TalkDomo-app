@@ -18,7 +18,7 @@ export class DomoPage {
 
   public domo = {
     "name": "",
-    "voice": "Voice1",
+    "voice": "",
     "emotion": ""
   };
 

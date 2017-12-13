@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { DomoPage } from '../domo2/domo2';
 import { ModalController, NavParams, ViewController } from 'ionic-angular';
 import { ItemSliding, List } from 'ionic-angular';
+import { APIService } from '../../providers/rest/api-service';
 // import { NgModel } from '@angular/forms';
 
 @Component({
@@ -11,11 +12,17 @@ import { ItemSliding, List } from 'ionic-angular';
 })
 export class LightsPage {
 
+  public apps = {
+    "apptype": "",
+    "name": "",
+    "status": ""
+  };
+
   items = [];
   lightcount = 2;
   item = "Light ";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public api: APIService) {
 
     //this.items = [];
 
@@ -23,6 +30,19 @@ export class LightsPage {
 
   lightstatus() {
     console.log('test')
+    if(this.toggleStatus == true){
+    this.apps.status = "on";
+    this.api.putApps(this.apps).subscribe(
+      () => console.log('light status changed')
+    );
+  }
+    else {
+
+      this.apps.status = "off";
+      this.api.putApps(this.apps).subscribe(
+        () => console.log('light status changed')
+      );
+    }
   }
 
 

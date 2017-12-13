@@ -31,7 +31,7 @@
 
     <ion-item>
       <ion-label>Light 1</ion-label>
-      <ion-toggle value="lightstatus" checked="false" (click)="lightstatus()"></ion-toggle>
+      <ion-toggle checked = "false" [(ngModel)]="toggleStatus"(ionChange)="lightstatus()"></ion-toggle>
     </ion-item>
 <!-- [(ngModel)]="lightstatus" -->
 

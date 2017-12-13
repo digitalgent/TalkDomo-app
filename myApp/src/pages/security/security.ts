@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {DomoPage} from '../domo2/domo2';
 import { ModalController, NavParams, ViewController } from 'ionic-angular';
+import { APIService } from '../../providers/rest/api-service';
 
 /**
  * Generated class for the SecurityPage page.
@@ -17,7 +18,30 @@ import { ModalController, NavParams, ViewController } from 'ionic-angular';
 })
 export class SecurityPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  public apps2 = {
+    "apptype": "",
+    "name": "",
+    "status": ""
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public api: APIService) {
+  }
+
+  secstatus() {
+    console.log('test')
+    if(this.toggleStatus == true){
+    this.apps2.status = "on";
+    this.api.putApps2(this.apps2).subscribe(
+      () => console.log('light status changed')
+    );
+  }
+    else {
+
+      this.apps2.status = "off";
+      this.api.putApps2(this.apps2).subscribe(
+        () => console.log('light status changed')
+      );
+    }
   }
 
   godomoSetting() {
